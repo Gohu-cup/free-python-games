@@ -1,3 +1,6 @@
+""" __main__.py 文件
+"""
+
 """Free Games CLI
 """
 
