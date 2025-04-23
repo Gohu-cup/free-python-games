@@ -61,7 +61,8 @@ code. To launch the editor and make changes to the "snake" game run::
   $ python3 -m idlelib.idle snake.py
 """
 
-from .utils import floor, line, path, square, vector             # .utils 表示相对导入
+from .utils import floor, line, path, square, vector             # .utils 表示相对导入，一个点表示从当前文件(__init__.py)所在的路径
+                                                                 #该语句的含义是从 freegames 目录下的 utils 导入模块
 
 __all__ = ['floor', 'line', 'path', 'square', 'vector']          # 定义 from freegames import * 时所导入的内容
 
