@@ -1,5 +1,6 @@
 """__init__ 文件的介绍
 
+  定义导入这个包(freegames)时的行为
 """
 """Free Python Games
 
@@ -60,11 +61,12 @@ code. To launch the editor and make changes to the "snake" game run::
   $ python3 -m idlelib.idle snake.py
 """
 
-from .utils import floor, line, path, square, vector
+from .utils import floor, line, path, square, vector             # .utils 表示相对导入
 
-__all__ = ['floor', 'line', 'path', 'square', 'vector']          
+__all__ = ['floor', 'line', 'path', 'square', 'vector']          # 定义 from freegames import * 时所导入的内容
 
-__title__ = 'freegames'
+# 包的信息
+__title__ = 'freegames'                          
 __version__ = '2.5.3'
 __author__ = 'Grant Jenks'
 __license__ = 'Apache 2.0'
