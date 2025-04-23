@@ -1,10 +1,14 @@
-""" __main__.py 文件
+""" __main__.py 文件介绍
+
+    __main__.py 文件在 Python 中用于定义一个包（在这里是 freegames ）的直接执行入口。
+    当通过命令行运行一个包（如 python -m package_name）时，Python 解释器会自动执行该包目录下的 __main__.py 文件。
+    通常命令为 python -m freegames
 """
 
 """Free Games CLI
 """
 
-import argparse
+import argparse         #处理命令行参数的库
 import os
 import runpy
 
