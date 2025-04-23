@@ -1,3 +1,6 @@
+"""__init__ 文件的介绍
+
+"""
 """Free Python Games
 
 Free Python Games is an Apache2 licensed collection of free Python games
@@ -59,7 +62,7 @@ code. To launch the editor and make changes to the "snake" game run::
 
 from .utils import floor, line, path, square, vector
 
-__all__ = ['floor', 'line', 'path', 'square', 'vector']
+__all__ = ['floor', 'line', 'path', 'square', 'vector']          
 
 __title__ = 'freegames'
 __version__ = '2.5.3'
