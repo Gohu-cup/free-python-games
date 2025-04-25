@@ -15,6 +15,10 @@ import os
 
 
 def floor(value, size, offset=200):
+    """以offset为基点，size为滑动单位的向下取整函数
+
+    """
+    
     """Floor of `value` given `size` and `offset`.
 
     The floor function is best understood with a diagram of the number line::
@@ -99,8 +103,11 @@ class vector(collections.abc.Sequence):
 
     # pylint: disable=invalid-name
     PRECISION = 6
+    # 精确值：四舍五入应保留小数点的位数，由下面的 round (python内置函数)函数实现
 
     __slots__ = ('_x', '_y', '_hash')
+    # 规定了实例的属性存储方式变为固定大小的数组，而非动态字典，无法对示例的属性进行动态修改
+    # 节省内存，提高性能。
 
     def __init__(self, x, y):
         """Initialize vector with coordinates: x, y.
@@ -117,7 +124,7 @@ class vector(collections.abc.Sequence):
         self._y = round(y, self.PRECISION)
 
     @property
-    def x(self):
+    def x(self):                          #定义读取操作
         """X-axis component of vector.
 
         >>> v = vector(1, 2)
@@ -130,7 +137,7 @@ class vector(collections.abc.Sequence):
         """
         return self._x
 
-    @x.setter
+    @x.setter                            #定义修改操作，_hash 部位 None 时才可修改
     def x(self, value):
         if self._hash is not None:
             raise ValueError('cannot set x after hashing')
@@ -185,6 +192,7 @@ class vector(collections.abc.Sequence):
         self.x = other.x
         self.y = other.y
 
+    # 下面是经典魔法方法的修改。
     def __len__(self):
         """v.__len__() -> len(v)
 
