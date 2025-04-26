@@ -25,10 +25,20 @@ def game_file(name):
 
 
 def main():
-    directory = os.path.dirname(os.path.realpath(__file__))
-    contents = os.listdir(directory)
-    games = sorted(name[:-3] for name in contents if game_file(name))
+    
+    directory = os.path.dirname(os.path.realpath(__file__))                      # 获取当前脚本的绝对路径并 提取所在目录路径。
+    contents = os.listdir(directory)                                             # 生成目录下所有文件名的列表。
+    games = sorted(name[:-3] for name in contents if game_file(name))            # 过滤非游戏文件，并去掉 .py 后缀（如 snake.py → snake），最后排序生成 games 列表。
 
+    """命令行输入 → argparse解析 → 执行子命令 → 结果输出
+    
+      │—— 子命令 → 命令逻辑
+      ├── list  → 打印游戏列表
+      ├── play  → 运行游戏
+      ├── show  → 显示源代码
+      └── copy  → 复制代码（检查覆盖）
+
+    """
     parser = argparse.ArgumentParser(
         prog='freegames',
         description='Free Python Games',
