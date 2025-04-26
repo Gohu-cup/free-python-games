@@ -14,7 +14,9 @@ import runpy
 
 
 def game_file(name):
-    """Return True if filename represents a game."""
+    """Return True if filename represents a game.
+        检查文件名是否符合要求，返回值为布尔之。
+    """
     return (
         name.endswith('.py')
         and not name.startswith('__')
