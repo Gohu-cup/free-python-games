@@ -26,7 +26,7 @@ def game_file(name):
 
 def main():
     
-    directory = os.path.dirname(os.path.realpath(__file__))                      # 获取当前脚本的绝对路径。
+    directory = os.path.dirname(os.path.realpath(__file__))                      # 获取当前脚本的绝对路径，即所谓的工作目录。
     contents = os.listdir(directory)                                             # 生成目录下所有文件名的列表。
     games = sorted(name[:-3] for name in contents if game_file(name))            # 过滤非游戏文件，并去掉 .py 后缀（如 snake.py → snake），最后排序生成 games 列表。sorted 函数是对列表中的元素按字幕顺序排序。
 
@@ -69,10 +69,10 @@ def main():
         for game in games:
             print(game)
     elif args.command == 'play':
-        runpy.run_module('freegames.' + args.game)
+        runpy.run_module('freegames.' + args.game)                             # 运行文件
     elif args.command == 'show':
         with open(os.path.join(directory, args.game + '.py')) as reader:
-            print(reader.read())
+            print(reader.read())                                               # 展示代码
     else:
         assert args.command == 'copy'
         filename = args.game + '.py'
